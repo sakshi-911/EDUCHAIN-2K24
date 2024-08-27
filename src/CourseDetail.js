@@ -720,9 +720,9 @@ const CourseDetail = () => {
         const tx = {
           from: account.address,
           to: recipient,
-          value: web3.utils.toWei(amount.toString(), 'ether'),
-          gas: 21000,
-          gasPrice: web3.utils.toHex(gasPrice * 1.1), // Slightly higher gas price
+          value: web3.utils.toWei(amount.toString(), 'ether'), // Ensure this is a string
+          gas: 21000, // Number is fine here
+          gasPrice: web3.utils.toHex(gasPrice), // Convert to Hex to avoid BigInt issues
         };
 
         const signedTx = await web3.eth.accounts.signTransaction(tx, privateKey);
