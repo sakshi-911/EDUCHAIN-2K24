@@ -1,0 +1,143 @@
+
+
+.course-nav{
+.back-button {
+  position: absolute;
+  left: 1130px; /* Adjust this value based on your layout */
+  top: 10px; /* Adjust to align vertically */
+  background-color: #2e0450; /* Light purple color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width:90px;}
+.back-button:hover {
+  
+  background-color: #1d0546; /* Slightly darker purple on hover */
+}
+}
+
+
+.course-nav {
+  width: 100%;
+  background-color: #4c0876;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.course-nav h1 {
+  font-size: 30px;
+  color: #ffffff;
+  margin-left: 20px;
+  
+}
+
+.course-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.course-image-card {
+  width: 30%; /* Adjusted width to 40% */
+  margin-left: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.course-image-card img {
+  width: 100%;
+  border-radius: 12px 12px 0 0;
+}
+
+.course-image-card p {
+  padding: 20px;
+  color: #333;
+}
+
+.course-details-card {
+  width: 66%;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-inline:10px;
+}
+
+.course-detail-section {
+  margin-bottom: 20px;
+}
+
+.course-detail-section h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4b0082; /* Same color as nav bar */
+  margin-bottom: 5px;
+}
+
+.course-detail-section p {
+  font-size: 16px;
+  color: #333;
+}
+
+.course-actions {
+  margin-top: 20px;
+}
+
+.course-actions button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px; /* Added margin for spacing between buttons */
+}
+
+.course-actions button:disabled {
+  background-color: #aaa;
+}
+
+.course-actions button:not(:disabled):hover {
+  background-color: #4b0082;
+  color: #fff;
+}
+
+.course-actions {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+}
+
+button {
+  padding: 8px 15px; /* Reduced padding */
+  font-size: 16px; /* Reduced font size */
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+  background-color: #4b0082;
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+

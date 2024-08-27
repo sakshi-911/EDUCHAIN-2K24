@@ -1,0 +1,325 @@
+/* General Container Styles */
+/* General Container Styles */
+.page2container {
+  background: url('https://static.vecteezy.com/system/resources/previews/023/330/830/original/blue-sky-background-in-pixel-art-style-vector.jpg') no-repeat center center fixed;
+  background-size: cover; /* Ensure the background image covers the entire page */
+  background-attachment: fixed; /* Keeps the background fixed while scrolling */
+  background-position: center; /* Center the image */
+  background-color: #f9f9f9; /* Light background for the page */
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; /* Ensure the container takes up at least the full viewport height */
+}
+
+
+/* Navigation Bar Styles */
+.navbar {
+  width: 100%;
+  background-color: #5b0793; /* Dark purple background */
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+img {
+  height: 170px;
+  width: 80%;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar ul li {
+  margin: 0 10px;
+}
+
+.navbar ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #00aaff; /* Cyan color on hover */
+}
+
+/* Search Bar Styles */
+.searchbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchbar input {
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.searchbar input:focus {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.searchicon {
+  position: absolute;
+  right: 10px;
+  color: #000000;
+  font-size: 20px;
+}
+
+/* Profile Icon */
+.profileicon {
+  font-size: 30px;
+  color: #ffffff;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Profile Menu */
+.profilemenu {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  width: 250px;
+  z-index: 100;
+}
+
+.profilemenu::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #ffffff transparent;
+}
+
+/* Profile Picture */
+.profilepicture img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.profilepicture input {
+  display: block;
+  margin-top: 10px;
+}
+
+/* User Info */
+.userinfo p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+/* Logout Button */
+.logoutbutton {
+  background-color: #1d56ab;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.logoutbutton:hover {
+  background-color: #00aaff;
+}
+
+/* Course Container */
+.coursecontainer {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  gap: 40px;
+  width: 100%;
+}
+
+/* Course Card Styles */
+.coursecard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 10px;
+  animation: fadeInCard 0.6s ease-in-out forwards;
+}
+
+.coursecard:hover {
+  transform: translateY(-10px) scale(1.03); /* Lift up on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.coursecard img {
+  width: 100%;
+  border-bottom: 2px solid #4b0082;
+  border-radius: 8px 8px 0 0;
+}
+
+.courseinfo {
+  padding: 15px;
+  text-align: center;
+}
+
+.courseinfo h3 {
+  color: #4b0082; /* Dark purple for course names */
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.courseinfo p {
+  color: #333333;
+  font-size: 16px;
+}
+
+/* Keyframes for Card Fade-in Animation */
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Page2.module.css */
+
+/* Existing styles */
+
+.footer {
+  background-color: #4b0082;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  margin-top: 20px; /* Adjusted for spacing from content */
+}
+
+.socialMedia {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.icon {
+  font-size: 24px;
+  transition: color 0.3s;
+}
+
+.icon:hover {
+  color: #ffcc00; /* Change to desired hover color */
+}
+
+.footerContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.copyright {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.credits {
+  margin-bottom: 20px;
+}
+
+.credits a {
+  color: #ffcc00; /* Change to desired link color */
+  text-decoration: none;
+}
+
+.credits a:hover {
+  text-decoration: underline;
+}
+
+.feedback {
+  margin-top: 20px;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.stars input[type="radio"] {
+  display: none;
+}
+
+.starsContainer {
+  display: flex;
+  gap: 5px;
+}
+
+.starsContainer label {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+button {
+  padding: 8px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ffcc00; /* Feedback button color */
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #ffaa00; /* Hover color */
+}
+
+/* Page2.module.css */
+.navbar ul li button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.navbar ul li button.active {
+  border-bottom: 2px solid #4b0082; /* Example color */
+  font-weight: bold;
+}
+
+
+
+
