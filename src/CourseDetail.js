@@ -703,46 +703,29 @@ const CourseDetail = () => {
   };
 
   const handleComplete = async () => {
-    const recipient = JSON.parse(localStorage.getItem("userData"))["walletAddress"];
+    const recipient = JSON.parse(localStorage.getItem("userData"))[
+      "walletAddress"
+    ];
     const amount = course.rewardPoints * 0.01;
-    const privateKey = '0xec38a47a8a29f8837fe0d900ded99902c1f4f8189b07dd38300532d6766325a0';
+    console.log(web3.utils.toWei(amount, "ether"));
 
-    if (web3) {
+    if (contract && web3) {
       try {
-        const account = web3.eth.accounts.privateKeyToAccount(privateKey);
-        const gasPrice = await web3.eth.getGasPrice();
+        console.log("Recipient Address:", recipient); // Log recipient to ensure it's correct
+        console.log("Sender Address:", account); // Log sender to ensure it's correct
+        console.log("Amount (ETH):", amount); // Log amount to ensure it's correct
 
-        console.log("Recipient Address:", recipient);
-        console.log("Sender Address:", account.address);
-        console.log("Amount (ETH):", amount);
-        console.log("Gas Price (Wei):", gasPrice);
-
-        const tx = {
-          from: account.address,
-          to: recipient,
-          value: web3.utils.toWei(amount.toString(), 'ether'), // Ensure this is a string
-          gas: 21000, // Number is fine here
-          gasPrice: web3.utils.toHex(gasPrice), // Convert to Hex to avoid BigInt issues
-        };
-
-        const signedTx = await web3.eth.accounts.signTransaction(tx, privateKey);
-
-        await web3.eth.sendSignedTransaction(signedTx.rawTransaction)
-          .on('receipt', (receipt) => {
-            console.log('Transaction successful with receipt:', receipt);
-            alert("Transfer successful!");
-            setRewardAdded(true); // Mark reward as added
-          })
-          .on('error', (error) => {
-            console.error('Transaction failed', error);
-          });
+        await contract.methods.transfer(recipient).send({
+          from: account,
+          value: web3.utils.toWei(amount, "ether"),
+        });
+        alert("Transfer successful!");
+        setRewardAdded(true); // Mark reward as added
       } catch (error) {
         console.error("Transfer failed", error);
       }
     }
   };
-
-
 
   const handleDownloadCertificate = () => {
     const userData = JSON.parse(localStorage.getItem("userData")) || {};
