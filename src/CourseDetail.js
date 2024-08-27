@@ -710,17 +710,19 @@ const CourseDetail = () => {
     if (web3) {
       try {
         const account = web3.eth.accounts.privateKeyToAccount(privateKey);
+        const gasPrice = await web3.eth.getGasPrice();
 
         console.log("Recipient Address:", recipient);
         console.log("Sender Address:", account.address);
         console.log("Amount (ETH):", amount);
+        console.log("Gas Price (Wei):", gasPrice);
 
         const tx = {
           from: account.address,
           to: recipient,
-          value: web3.utils.toWei(amount.toString(), "ether"),
+          value: web3.utils.toWei(amount.toString(), 'ether'),
           gas: 21000,
-          gasPrice: await web3.eth.getGasPrice(),
+          gasPrice: web3.utils.toHex(gasPrice * 1.1), // Slightly higher gas price
         };
 
         const signedTx = await web3.eth.accounts.signTransaction(tx, privateKey);
@@ -739,6 +741,7 @@ const CourseDetail = () => {
       }
     }
   };
+
 
 
   const handleDownloadCertificate = () => {
