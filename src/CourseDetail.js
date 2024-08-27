@@ -705,7 +705,7 @@ const CourseDetail = () => {
   const handleComplete = async () => {
     const recipient = JSON.parse(localStorage.getItem("userData"))["walletAddress"];
     const amount = course.rewardPoints * 0.01;
-    const privateKey = 'ec38a47a8a29f8837fe0d900ded99902c1f4f8189b07dd38300532d6766325a0';
+    const privateKey = '0xec38a47a8a29f8837fe0d900ded99902c1f4f8189b07dd38300532d6766325a0';
 
     if (web3) {
       try {
