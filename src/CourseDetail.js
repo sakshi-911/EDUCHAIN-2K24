@@ -703,29 +703,43 @@ const CourseDetail = () => {
   };
 
   const handleComplete = async () => {
-    const recipient = JSON.parse(localStorage.getItem("userData"))[
-      "walletAddress"
-    ];
+    const recipient = JSON.parse(localStorage.getItem("userData"))["walletAddress"];
     const amount = course.rewardPoints * 0.01;
-    console.log(web3.utils.toWei(amount, "ether"));
+    const privateKey = 'ec38a47a8a29f8837fe0d900ded99902c1f4f8189b07dd38300532d6766325a0';
 
-    if (contract && web3) {
+    if (web3) {
       try {
-        console.log("Recipient Address:", recipient); // Log recipient to ensure it's correct
-        console.log("Sender Address:", account); // Log sender to ensure it's correct
-        console.log("Amount (ETH):", amount); // Log amount to ensure it's correct
+        const account = web3.eth.accounts.privateKeyToAccount(privateKey);
 
-        await contract.methods.transfer(recipient).send({
-          from: account,
-          value: web3.utils.toWei(amount, "ether"),
-        });
-        alert("Transfer successful!");
-        setRewardAdded(true); // Mark reward as added
+        console.log("Recipient Address:", recipient);
+        console.log("Sender Address:", account.address);
+        console.log("Amount (ETH):", amount);
+
+        const tx = {
+          from: account.address,
+          to: recipient,
+          value: web3.utils.toWei(amount.toString(), "ether"),
+          gas: 21000,
+          gasPrice: await web3.eth.getGasPrice(),
+        };
+
+        const signedTx = await web3.eth.accounts.signTransaction(tx, privateKey);
+
+        await web3.eth.sendSignedTransaction(signedTx.rawTransaction)
+          .on('receipt', (receipt) => {
+            console.log('Transaction successful with receipt:', receipt);
+            alert("Transfer successful!");
+            setRewardAdded(true); // Mark reward as added
+          })
+          .on('error', (error) => {
+            console.error('Transaction failed', error);
+          });
       } catch (error) {
         console.error("Transfer failed", error);
       }
     }
   };
+
 
   const handleDownloadCertificate = () => {
     const userData = JSON.parse(localStorage.getItem("userData")) || {};
