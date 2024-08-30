@@ -1,3 +1,4 @@
+/* Base styles */
 * {
   margin: 0;
   padding: 0;
@@ -8,29 +9,30 @@
   background-size: cover;
   height: 100vh;
   display: flex;
-  justify-content: space-between; /* Space between logo and form */
+  justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+  flex-wrap: wrap; /* Allows the content to wrap on smaller screens */
 }
 
 /* Logo Section */
 .logoWrapper {
-  flex: 0 0 50%; /* Take up half of the page width */
+  flex: 0 0 50%;
   display: flex;
-  flex-direction: column; /* Stack logo and text vertically */
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
-  margin-top: -20px; /* Shift the logo upwards */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -20px;
 }
 
 .logoWrapper img {
-  width: 200px; /* Increase the size of the logo */
+  width: 200px;
   height: auto;
 }
 
 .logoText {
   text-align: center;
-  color: #000000; /* Black color for the text */
+  color: #000000;
   font-size: 24px;
   font-weight: bold;
   margin-top: 10px;
@@ -38,17 +40,17 @@
 
 .logoDescription {
   text-align: center;
-  color: #000000; /* Black color for the description text */
+  color: #000000;
   font-size: 16px;
   margin-top: 5px;
 }
 
 /* Home Container */
 .homeContainer {
-  width: 50%; /* Take up half of the page width */
+  width: 50%;
   height: 45%;
   display: flex;
-  justify-content: center; /* Center the form horizontally */
+  justify-content: center;
   align-items: center;
   font-family: 'Arial', sans-serif;
 }
@@ -65,11 +67,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0; /* Ensure no extra margin is added */
+  margin: 0;
 }
 
 .formWrapper h1 {
-  color: #000000; /* Black color for the heading */
+  color: #000000;
   text-align: center;
   margin-bottom: 20px;
   font-size: 28px;
@@ -86,7 +88,7 @@
 label {
   margin-bottom: 8px;
   font-size: 16px;
-  color: #000000; /* Black color for labels */
+  color: #000000;
 }
 
 input {
@@ -97,12 +99,12 @@ input {
   border-radius: 8px;
   background-color: #ffffffd3;
   font-size: 16px;
-  color: #000000; /* Black color for input text */
+  color: #000000;
   transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
 }
 
 input::placeholder {
-  color: black; /* Black color for placeholder text */
+  color: black;
 }
 
 input:focus {
@@ -147,5 +149,70 @@ button:active {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .main {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .logoWrapper,
+  .homeContainer {
+    width: 100%;
+  }
+
+  .formWrapper {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .logoWrapper img {
+    width: 150px;
+  }
+
+  .logoText {
+    font-size: 20px;
+  }
+
+  .logoDescription {
+    font-size: 14px;
+  }
+
+  .formWrapper h1 {
+    font-size: 24px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .formWrapper {
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .formWrapper h1 {
+    font-size: 20px;
+  }
+
+  input {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px;
   }
 }

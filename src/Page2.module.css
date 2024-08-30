@@ -1,29 +1,28 @@
 /* General Container Styles */
-/* General Container Styles */
 .page2container {
   background: url('https://static.vecteezy.com/system/resources/previews/023/330/830/original/blue-sky-background-in-pixel-art-style-vector.jpg') no-repeat center center fixed;
-  background-size: cover; /* Ensure the background image covers the entire page */
-  background-attachment: fixed; /* Keeps the background fixed while scrolling */
-  background-position: center; /* Center the image */
-  background-color: #f9f9f9; /* Light background for the page */
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-color: #f9f9f9;
   
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh; /* Ensure the container takes up at least the full viewport height */
+  min-height: 100vh;
 }
-
 
 /* Navigation Bar Styles */
 .navbar {
   width: 100%;
-  background-color: #5b0793; /* Dark purple background */
+  background-color: #5b0793;
   padding: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 img {
@@ -37,6 +36,7 @@ img {
   justify-content: space-around;
   padding: 0;
   margin: 0;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .navbar ul li {
@@ -51,7 +51,7 @@ img {
 }
 
 .navbar ul li a:hover {
-  color: #00aaff; /* Cyan color on hover */
+  color: #00aaff;
 }
 
 /* Search Bar Styles */
@@ -59,6 +59,7 @@ img {
   position: relative;
   display: flex;
   align-items: center;
+  margin-top: 10px; /* Adjust spacing on smaller screens */
 }
 
 .searchbar input {
@@ -176,7 +177,7 @@ img {
 }
 
 .coursecard:hover {
-  transform: translateY(-10px) scale(1.03); /* Lift up on hover */
+  transform: translateY(-10px) scale(1.03);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -192,7 +193,7 @@ img {
 }
 
 .courseinfo h3 {
-  color: #4b0082; /* Dark purple for course names */
+  color: #4b0082;
   margin: 10px 0;
   font-size: 20px;
 }
@@ -214,17 +215,14 @@ img {
   }
 }
 
-/* Page2.module.css */
-
-/* Existing styles */
-
+/* Footer Styles */
 .footer {
   background-color: #4b0082;
   color: #ffffff;
   padding: 20px;
   text-align: center;
   position: relative;
-  margin-top: 20px; /* Adjusted for spacing from content */
+  margin-top: 20px;
 }
 
 .socialMedia {
@@ -240,30 +238,12 @@ img {
 }
 
 .icon:hover {
-  color: #ffcc00; /* Change to desired hover color */
+  color: #ffcc00;
 }
 
 .footerContent {
   max-width: 800px;
   margin: 0 auto;
-}
-
-.copyright {
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-.credits {
-  margin-bottom: 20px;
-}
-
-.credits a {
-  color: #ffcc00; /* Change to desired link color */
-  text-decoration: none;
-}
-
-.credits a:hover {
-  text-decoration: underline;
 }
 
 .feedback {
@@ -275,10 +255,6 @@ img {
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
-}
-
-.stars input[type="radio"] {
-  display: none;
 }
 
 .starsContainer {
@@ -296,17 +272,17 @@ button {
   font-size: 16px;
   border: none;
   border-radius: 8px;
-  background-color: #ffcc00; /* Feedback button color */
+  background-color: #ffcc00;
   color: #000;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #ffaa00; /* Hover color */
+  background-color: #ffaa00;
 }
 
-/* Page2.module.css */
+/* Navigation Button */
 .navbar ul li button {
   background-color: transparent;
   border: none;
@@ -316,10 +292,66 @@ button:hover {
 }
 
 .navbar ul li button.active {
-  border-bottom: 2px solid #4b0082; /* Example color */
+  border-bottom: 2px solid #4b0082;
   font-weight: bold;
 }
 
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .coursecontainer {
+    grid-template-columns: repeat(3, 1fr); /* Reduce columns */
+  }
 
+  .navbar ul {
+    justify-content: space-between; /* Adjust spacing */
+  }
+}
 
+@media (max-width: 768px) {
+  .coursecontainer {
+    grid-template-columns: repeat(2, 1fr); /* Further reduce columns */
+  }
 
+  .coursecard {
+    padding: 15px;
+  }
+
+  .navbar ul li a {
+    font-size: 16px; /* Smaller font for links */
+  }
+
+  .profilemenu {
+    top: 50px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .coursecontainer {
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 20px;
+  }
+
+  .navbar ul {
+    flex-direction: column; /* Stack menu items */
+    align-items: center;
+  }
+
+  .navbar ul li {
+    margin: 5px 0; /* Adjust margin */
+  }
+
+  .searchbar input {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  .profileicon {
+    font-size: 24px; /* Smaller profile icon */
+  }
+
+  .logoutbutton {
+    padding: 8px;
+    font-size: 14px; /* Smaller logout button */
+  }
+}
